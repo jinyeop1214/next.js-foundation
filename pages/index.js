@@ -3,32 +3,14 @@ import { useRouter } from "next/router";
 import Seo from "../components/Seo";
 
 export default function Home({ results }) {
-	// const [movies, setMovies] = useState();
-	// useEffect(() => {
-	// 	(async () => {
-	// 		const { results } = await (await fetch(`/api/movies`)).json();
-	// 		setMovies(results);
-	// 	})();
-	// }, []);
-
 	const router = useRouter();
 	const onClick = (id, title) => {
-		// router.push(`/movies/${id}`);
-		router.push(
-			{
-				pathname: `/movies/${id}`,
-				query: {
-					title,
-				},
-			},
-			`/movies/${id}`
-		);
+		router.push(`/movies/${title}/${id}`);
 	};
 
 	return (
 		<div className="container">
 			<Seo title="Home" />
-			{/* {!results && <h4>Loading...</h4>} */}
 			{results?.map((movie) => (
 				<div
 					onClick={() => onClick(movie.id, movie.original_title)}
@@ -39,15 +21,8 @@ export default function Home({ results }) {
 						src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
 					/>
 					<h4>
-						{/* <Link href={`/movies/${movie.id}`}> */}
 						<Link
-							href={{
-								pathname: `/movies/${movie.id}`,
-								query: {
-									title: movie.original_title,
-								},
-							}}
-							as={`/movies/${movie.id}`}
+							href={`/movies/${movie.original_title}/${movie.id}`}
 						>
 							<a>{movie.original_title}</a>
 						</Link>
