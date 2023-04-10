@@ -1,5 +1,7 @@
 ***[NomadCoder Next.js 기초 강의 수강 결과 코드]***
 
+<br/>
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
